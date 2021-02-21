@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BookingsRepository extends MongoRepository<Bookings,String> {
@@ -15,4 +16,6 @@ public interface BookingsRepository extends MongoRepository<Bookings,String> {
     List<Bookings> findAllByBookingDate(LocalDate parse);
 
     List<Bookings> findAllByBookingDateAndRoom(LocalDate parse, Room room);
+
+    void deleteByRoom(Optional<Room> byId);
 }
